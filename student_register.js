@@ -67,12 +67,14 @@ form.addEventListener('submit', function(event){
        passwordError.textContent='Passwords do not match!';
        password.value='';
        confirm_password.value='';
+       window.location.href='#password-error'
        return;
        }
    else if(password.value.length<8){
       //   pending.innerHTML='';
          passwordError.style.display='block';
          passwordError.textContent='Must contain at least 8 characters';
+         window.location.href='#password-error'
          return;
       }
     
@@ -93,10 +95,12 @@ function firstRegistration(userData){
             if(error.username){
                //  pending.innerHTML='';
                 usernameError.style.display='block';
+                window.location.href='#username-error'
             }
             if(error.email){
                //  pending.innerHTML='';
                 emailError.style.display='block';
+                window.location.href='#email-error'
             }
         })   
         }

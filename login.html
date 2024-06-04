@@ -18,7 +18,7 @@
             <h3 id="login-text">LOGIN</h3>
             
             <input class="textField" type="text" id="username" name="username" required placeholder="username"> <br>
-            <span style="display: none;" id="user-pass-error">Incorrect username or password!</span> <br>
+            <span style="display: none; color: red; font-size: smaller;" id="user-pass-error">Incorrect username or password!</span> <br>
             <input class="textField" type="password" id="password" name="password" required placeholder="password"> <br>
             <div style="display: none;" id="forgot-password-container">
                 <label id="forgot-password-lbl">Forgot your password?</label>
@@ -26,6 +26,11 @@
             </div>
             <button id="submitBtn" type="submit">LOGIN</button>
             <br>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
             <div class="sign-container">
                 <label id="signIn-lbl">Don't have an account?</label>
                 <label id="sign-up" >Sign Up</label>

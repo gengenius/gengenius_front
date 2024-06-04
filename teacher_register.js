@@ -37,24 +37,28 @@ primary.onclick=function(){
    school_level.push(primary_data);
    primary.style.pointerEvents='none'
    primary.style.color='lightgray'
+   whereLbl.style.color='black'
 }
 jhs.onclick=function(){
    let jsh_data = "JHS";
    school_level.push(jsh_data);
    jhs.style.pointerEvents='none'
    jhs.style.color='lightgray'
+   whereLbl.style.color='black'
 }
 shs.onclick=function(){
    let shs_data = "SHS";
    school_level.push(shs_data);
    shs.style.color='lightgray'
    shs.style.pointerEvents='none'
+   whereLbl.style.color='black'
 }
 vocational.onclick=function(){
    let vocational_data = "Vocational";
    school_level.push(vocational_data);
    vocational.style.pointerEvents='none'
    vocational.style.color='lightgray'
+   whereLbl.style.color='black'
 }
 
 function genderLoad(){
@@ -162,12 +166,14 @@ form.addEventListener('submit', function(event){
     passwordError.textContent='Passwords do not match!';
     password.value='';
     confirm_password.value='';
+    window.location.href='#password-error'
     return;
     }
     else if(password.value.length<8){
       //   pending.innerHTML='';
         passwordError.style.display='block';
         passwordError.textContent='Must contain at least 8 characters';
+        window.location.href='#password-error'
         return;
     }
 
@@ -187,10 +193,12 @@ function firstRegistration(userData){
             if(error.username){
                //  pending.innerHTML='';
                 usernameError.style.display='block';
+                window.location.href='#username-error'
             }
             if(error.email){
                //  pending.innerHTML='';
                 emailError.style.display='block';
+                window.location.href='#email-error'
             }
         })   
         }
@@ -326,6 +334,7 @@ localStorage.removeItem('accessToken');
 }
 else{
    whereLbl.style.color='red';
+   window.location.href='#where-lbl'
    return;
 }
 });

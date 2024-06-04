@@ -12,6 +12,12 @@ let password = document.getElementById("password");
 let forgotPasswordContainer=document.getElementById("forgot-password-container");
 let email=document.getElementById("email");
 
+function showSpinner(){
+    submitBtn.disabled = true;
+    submitBtn.style.backgroundColor='#ccc';
+    document.querySelector('.spinner').style.display = 'block';
+}
+
 signUp.onclick=function(){
     loginFormContainer.style.display='none'
     teacherStudentContainer.style.display='block';
@@ -37,6 +43,8 @@ password.addEventListener('input', function(){
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
+
+    showSpinner()
  
     // if(!navigator.onLine){
     //    pending.innerHTML='';
@@ -63,6 +71,8 @@ function login(){
        return response.json().then(error => {
           userPassError.style.display='block';
           forgotPasswordContainer.style.display="block";
+          submitBtn.disabled=false;
+          document.querySelector('.spinner').style.display = 'none';
         //   pending.innerHTML='';
          })
  
@@ -84,12 +94,15 @@ function login(){
         .then(response => response.json())
         .then(profileData => {
             if(profileData.status==="Teacher"){
+                document.querySelector('.spinner').style.display = 'none';
                 window.location.href="teacher_dashboard.html";
             }
             else if(profileData.status==="Student"){
+                document.querySelector('.spinner').style.display = 'none';
                 window.location.href="student_dashboard.html";
             }
             else{
+                document.querySelector('.spinner').style.display = 'none';
                 alert("Unknown status!");
             }
         })
