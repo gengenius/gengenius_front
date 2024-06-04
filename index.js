@@ -62,3 +62,34 @@ card3.onclick=function(){
 card4.onclick=function(){
     window.location.href="login.html"
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabBtn=document.getElementById("tab-btn");
+    const tabContent=document.getElementById("tab-content");
+
+    const toggleTabContent = (event) => {
+        event.stopPropagation();
+        if(tabContent.style.display==='none' || tabContent.style.display === ''){
+            tabContent.style.display='block';
+        }
+        else{
+            tabContent.style.display='none';
+        }
+    };
+
+    const hideTabContent = () => {
+        tabContent.style.display='none'
+    };
+
+    tabBtn.addEventListener('click', toggleTabContent);
+
+    document.addEventListener('click', (event) => {
+        if(!tabContent.contains(event.target) && event.target !== tabBtn){
+            hideTabContent();
+        }
+    });
+
+    tabContent.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+});

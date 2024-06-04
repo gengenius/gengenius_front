@@ -17,9 +17,9 @@ body{
     border-top-right-radius: 10px;
     box-shadow: 0px 0px 50px 1px #d0cfcf;
 }
-.tab:hover #tab-content{
+/* .tab:hover #tab-content{
     display: block;
-}
+} */
 
 #tab-btn{
     font-size: 25px;
@@ -29,12 +29,16 @@ body{
     box-shadow: 0px 0px 50px 1px #d0cfcf;
     background-color: #e8e8e8;
 }
+#tab-content.show{
+    display: block;
+}
 #tab-content a{
     display: block;
     text-decoration: none;
     font-size: 1.2rem;
     box-shadow: 0px 5px 1px rgb(243, 243, 243);
     border-bottom-right-radius: 20px;
+    color: green;
 }
 #tab-content a:hover {
     background-image: repeating-linear-gradient( to top, rgb(190, 190, 57), green);
@@ -96,8 +100,8 @@ nav{
     padding: 0.6rem;
     text-align: center;
     align-content: center;
-    background-color: #f3f3f3;
-    box-shadow: 0px 0px 30px 1px #8d8d8d;
+    background-color: #e8e8e8;
+    box-shadow: 0px 0px 100px #8d8d8d;
 }
 
 nav a{
@@ -107,7 +111,6 @@ nav a{
    color: #006332;
    padding-right: 1.1rem; padding-left:1.1rem; 
    margin: 0.8%;
-   box-shadow: 0px 0px 20px rgb(185, 185, 185);
 }
 nav a:hover{
     background-color: rgb(228, 228, 228);
