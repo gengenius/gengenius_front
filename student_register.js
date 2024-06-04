@@ -1,4 +1,5 @@
 let form=document.getElementById("form");
+submitBtn=document.getElementById("submit-btn");
 let username=document.getElementById("username");
 let usernameError=document.getElementById("username-error");
 let first_name=document.getElementById("first-name");
@@ -16,6 +17,13 @@ let confirm_password=document.getElementById("confirm-password");
 // let pending=document.getElementById("pendingLbl");
 // let pendingError=document.getElementById("pendingError");
 let phone = document.getElementById("phone");
+
+function showSpinner(){
+   submitBtn.disabled = true;
+   submitBtn.style.backgroundColor='#ccc';
+   document.querySelector('.spinner').style.display = 'block';
+}
+
 
 function genderLoad(){
    const gender = [
@@ -51,6 +59,7 @@ username.addEventListener('input', function(){
 form.addEventListener('submit', function(event){
    event.preventDefault();
 
+   showSpinner();
 
    // if(!navigator.onLine){
    //  pending.innerHTML='';
@@ -68,6 +77,9 @@ form.addEventListener('submit', function(event){
        password.value='';
        confirm_password.value='';
        window.location.href='#password-error'
+       submitBtn.disabled=false;
+       submitBtn.style.backgroundColor='#4CAF50'
+       document.querySelector('.spinner').style.display = 'none';
        return;
        }
    else if(password.value.length<8){
@@ -75,6 +87,9 @@ form.addEventListener('submit', function(event){
          passwordError.style.display='block';
          passwordError.textContent='Must contain at least 8 characters';
          window.location.href='#password-error'
+         submitBtn.disabled=false;
+         submitBtn.style.backgroundColor='#4CAF50'
+         document.querySelector('.spinner').style.display = 'none';
          return;
       }
     
@@ -96,11 +111,17 @@ function firstRegistration(userData){
                //  pending.innerHTML='';
                 usernameError.style.display='block';
                 window.location.href='#username-error'
+                submitBtn.disabled=false;
+                submitBtn.style.backgroundColor='#4CAF50'
+                document.querySelector('.spinner').style.display = 'none';
             }
             if(error.email){
                //  pending.innerHTML='';
                 emailError.style.display='block';
                 window.location.href='#email-error'
+                submitBtn.disabled=false;
+                submitBtn.style.backgroundColor='#4CAF50'
+                document.querySelector('.spinner').style.display = 'none';
             }
         })   
         }
@@ -203,6 +224,7 @@ function secondRegistration(secondUserData){
       throw new Error('second registration failed');
    }
    else{
+      document.querySelector('.spinner').style.display = 'none';
       window.location.href="login.html";
    }
    return response.json();
