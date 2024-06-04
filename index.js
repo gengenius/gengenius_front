@@ -65,31 +65,31 @@ card4.onclick=function(){
 
 document.addEventListener('DOMContentLoaded', () => {
     const tabBtn=document.getElementById("tab-btn");
-    const tabContent=document.getElementById("tab-content");
-
-    const toggleTabContent = (event) => {
+    const tabOptions=document.querySelector(".options");
+ 
+    const toggleTabOptions = (event) => {
         event.stopPropagation();
-        if(tabContent.style.display==='none' || tabContent.style.display === ''){
-            tabContent.style.display='block';
+        if(tabOptions.style.display==='none' || tabOptions.style.display === ''){
+          tabOptions.style.display='block';
         }
         else{
-            tabContent.style.display='none';
+          tabOptions.style.display='none';
         }
     };
-
-    const hideTabContent = () => {
-        tabContent.style.display='none'
+ 
+    const hideTabOptions = () => {
+       tabOptions.style.display='none'
     };
-
-    tabBtn.addEventListener('click', toggleTabContent);
-
+ 
+    tabBtn.addEventListener('click', toggleTabOptions);
+ 
     document.addEventListener('click', (event) => {
-        if(!tabContent.contains(event.target) && event.target !== tabBtn){
-            hideTabContent();
+        if(!tabOptions.contains(event.target) && event.target !== tabBtn){
+            hideTabOptions();
         }
     });
-
-    tabContent.addEventListener('click', (event) => {
+ 
+    tabOptions.addEventListener('click', (event) => {
         event.stopPropagation();
     });
-});
+ });

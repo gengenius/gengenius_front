@@ -7,44 +7,41 @@ body{
     font-family: Roboto, sans-serif;
     background-color: #f3f3f3;
   }
-.tab{
+
+  .options-tab{
+    font-size: 30px;
+    margin-top: -8px;
     z-index: 2;
     position: fixed;
     display: inline-block;
     border-top-right-radius: 10px;
 }
-.tab:hover{
-    cursor: pointer;
-    border-top-right-radius: 10px;
-    box-shadow: 0px 0px 50px 1px #d0cfcf;
-}
-.tab:hover #tab-content{
+.options-tab:hover .options{
     display: block;
 }
-
 #tab-btn{
-    font-size: 25px;
+    cursor: pointer;
 }
-#tab-content{
+.options{
     display: none;
     box-shadow: 0px 0px 50px 1px #d0cfcf;
     background-color: #e8e8e8;
+    border-bottom-right-radius: 10px;
 }
-#tab-content.show{
-    display: block;
-}
-#tab-content a{
+.options a{
     display: block;
     text-decoration: none;
     font-size: 1.2rem;
     box-shadow: 0px 5px 1px rgb(243, 243, 243);
     border-bottom-right-radius: 20px;
     color: green;
+    cursor: pointer;
 }
-#tab-content a:hover {
+.options a:hover {
     background-image: repeating-linear-gradient( to top, rgb(190, 190, 57), green);
     color: white;
 }
+
 
 
 .banner {
@@ -252,7 +249,7 @@ video {
 
 /* New styles for mobile phones */
 @media (max-width: 480px) {
-    #tab-content{
+    .options{
         box-shadow: none;
     }
     .card {
