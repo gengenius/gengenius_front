@@ -13,12 +13,10 @@ html{
     z-index: 2;
     font-size: 30px;
     margin-top: -8px;
+    cursor: pointer;
 }
 .options-tab:hover .options{
     display: block;
-}
-.options-tab span:hover{
-    cursor: pointer;
 }
 .options{
     display: none;
@@ -27,6 +25,7 @@ html{
 .options a{
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 .options label{
