@@ -72,6 +72,7 @@ function login(){
           userPassError.style.display='block';
           forgotPasswordContainer.style.display="block";
           submitBtn.disabled=false;
+          submitBtn.style.backgroundColor='#4CAF50'
           document.querySelector('.spinner').style.display = 'none';
         //   pending.innerHTML='';
          })
