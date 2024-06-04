@@ -192,3 +192,34 @@ contactOption.onclick=function(){
        contact.classList.remove('animate-contact')
    }, 2000)
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+   const tabBtn=document.getElementById("tab-btn");
+   const tabOptions=document.querySelector(".options");
+
+   const toggleTabOptions = (event) => {
+       event.stopPropagation();
+       if(tabOptions.style.display==='none' || tabOptions.style.display === ''){
+         tabOptions.style.display='block';
+       }
+       else{
+         tabOptions.style.display='none';
+       }
+   };
+
+   const hideTabOptions = () => {
+      tabOptions.style.display='none'
+   };
+
+   tabBtn.addEventListener('click', toggleTabOptions);
+
+   document.addEventListener('click', (event) => {
+       if(!tabOptions.contains(event.target) && event.target !== tabBtn){
+           hideTabOptions();
+       }
+   });
+
+   tabOptions.addEventListener('click', (event) => {
+       event.stopPropagation();
+   });
+});
