@@ -1,4 +1,5 @@
 let form=document.getElementById("form");
+let submitBtn=document.getElementById("submit-btn");
 let username=document.getElementById("username");
 let usernameError=document.getElementById("username-error");
 let first_name=document.getElementById("first-name");
@@ -28,6 +29,13 @@ let subject =document.getElementById("subject");
 let phone = document.getElementById("phone");
 let link = document.getElementById("link");
 let amount = document.getElementById("amount");
+
+
+function showSpinner(){
+   submitBtn.disabled = true;
+   submitBtn.style.backgroundColor='#ccc';
+   document.querySelector('.spinner').style.display = 'block';
+}
 
 
 let school_level=[];
@@ -147,6 +155,8 @@ function qualificationLoad(){
 form.addEventListener('submit', function(event){
    event.preventDefault();
 
+   showSpinner();
+
    if(primary.style.pointerEvents ==='none' || jhs.style.pointerEvents ==='none' || shs.style.pointerEvents ==='none' || vocational.style.pointerEvents ==='none'){
 
    let school_level_data=school_level.join(', ')
@@ -167,6 +177,9 @@ form.addEventListener('submit', function(event){
     password.value='';
     confirm_password.value='';
     window.location.href='#password-error'
+    submitBtn.disabled=false;
+    submitBtn.style.backgroundColor='#4CAF50'
+    document.querySelector('.spinner').style.display = 'none';
     return;
     }
     else if(password.value.length<8){
@@ -174,6 +187,9 @@ form.addEventListener('submit', function(event){
         passwordError.style.display='block';
         passwordError.textContent='Must contain at least 8 characters';
         window.location.href='#password-error'
+        submitBtn.disabled=false;
+        submitBtn.style.backgroundColor='#4CAF50'
+        document.querySelector('.spinner').style.display = 'none';
         return;
     }
 
@@ -194,11 +210,17 @@ function firstRegistration(userData){
                //  pending.innerHTML='';
                 usernameError.style.display='block';
                 window.location.href='#username-error'
+                submitBtn.disabled=false;
+                submitBtn.style.backgroundColor='#4CAF50'
+                document.querySelector('.spinner').style.display = 'none';
             }
             if(error.email){
                //  pending.innerHTML='';
                 emailError.style.display='block';
                 window.location.href='#email-error'
+                submitBtn.disabled=false;
+                submitBtn.style.backgroundColor='#4CAF50'
+                document.querySelector('.spinner').style.display = 'none';
             }
         })   
         }
@@ -313,6 +335,7 @@ function secondRegistration(secondUserData){
       throw new Error('Network was not ok');
    }
    else{
+      document.querySelector('.spinner').style.display = 'none';
       window.location.href="login.html";
 
    }
@@ -335,6 +358,9 @@ localStorage.removeItem('accessToken');
 else{
    whereLbl.style.color='red';
    window.location.href='#where-lbl'
+   submitBtn.disabled=false;
+   submitBtn.style.backgroundColor='#4CAF50'
+   document.querySelector('.spinner').style.display = 'none';
    return;
 }
 });
