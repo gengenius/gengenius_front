@@ -50,7 +50,7 @@ form.addEventListener('submit', function(e){
      
 function login(){
        // http://127.0.0.1:8000/auth/jwt/create 
-    fetch("http://127.0.0.1:8000/auth/jwt/create", {
+    fetch("https://gengenius-back.onrender.com/auth/jwt/create", {
      method: 'POST',
      headers: {
         'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ function login(){
     localStorage.setItem('loginAccessToken', loginAccessToken);
     // console.log(data.access)
     if(loginAccessToken){
-        fetch("http://127.0.0.1:8000/manage_geniusera/user_status/status/", {
+        fetch("https://gengenius-back.onrender.com/manage_geniusera/user_status/status/", {
             method: 'GET',
             headers: {
                 'Authorization': `JWT ${loginAccessToken}`,

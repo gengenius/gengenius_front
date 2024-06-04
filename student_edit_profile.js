@@ -34,7 +34,7 @@ function TeacherUserDetails(){
        return null;
     }
  
-    fetch('http://127.0.0.1:8000/auth/users/me/', {
+    fetch('https://gengenius-back.onrender.com/auth/users/me/', {
     headers: {
        'Authorization': `JWT ${updateProfileAccessToken}`,
        'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ function TeacherUserDetails(){
         return null;
      }
  
-     fetch('http://127.0.0.1:8000/manage_geniusera/students/me/', {
+     fetch('https://gengenius-back.onrender.com/manage_geniusera/students/me/', {
      headers: {
         'Authorization': `JWT ${updateProfileAccessToken}`,
         'Content-Type': 'application/json',
@@ -144,8 +144,8 @@ form.addEventListener('submit', function(event){
    //  }
 
 function updateUserProfile(){
-   // http://127.0.0.1:8000/manage_easywin/customers/me/ 
-   fetch('http://127.0.0.1:8000/core/users/me/', {
+   // https://gengenius-back.onrender.com/manage_easywin/customers/me/ 
+   fetch('https://gengenius-back.onrender.com/core/users/me/', {
    method: 'PUT',
    headers: {
       'Authorization': `JWT ${updateProfileAccessToken}`,
@@ -180,7 +180,7 @@ updateUserProfile();
 
 
 function updateCustomerProfile(){
-   fetch('http://127.0.0.1:8000/manage_geniusera/students/me/', {
+   fetch('https://gengenius-back.onrender.com/manage_geniusera/students/me/', {
    method: 'PUT',
    headers: {
       'Authorization': `JWT ${updateProfileAccessToken}`,

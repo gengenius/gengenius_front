@@ -47,8 +47,8 @@ function TeacherUserDetails(){
       return null;
    }
 
-   // http://127.0.0.1:8000/manage_geniusera/teachers/me/ 
-   fetch('http://127.0.0.1:8000/auth/users/me/', {
+   // https://gengenius-back.onrender.com/manage_geniusera/teachers/me/ 
+   fetch('https://gengenius-back.onrender.com/auth/users/me/', {
    headers: {
       'Authorization': `JWT ${authenticationAccessToken}`,
       'Content-Type': 'application/json',
@@ -84,8 +84,8 @@ function TeacherCustomerDetails(){
        return null;
     }
 
-    // http://127.0.0.1:8000/manage_geniusera/teachers/me/ 
-    fetch('http://127.0.0.1:8000/manage_geniusera/teachers/me/', {
+    // https://gengenius-back.onrender.com/manage_geniusera/teachers/me/ 
+    fetch('https://gengenius-back.onrender.com/manage_geniusera/teachers/me/', {
     headers: {
        'Authorization': `JWT ${authenticationAccessToken}`,
        'Content-Type': 'application/json',

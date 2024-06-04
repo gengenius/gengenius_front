@@ -78,8 +78,8 @@ form.addEventListener('submit', function(event){
     
 
 function firstRegistration(userData){
-    // http://127.0.0.1:8000/auth/users/
-    fetch("http://127.0.0.1:8000/auth/users/", {
+    // https://gengenius-back.onrender.com/auth/users/
+    fetch("https://gengenius-back.onrender.com/auth/users/", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ firstRegistration(userData);
 
 function authenticateUser(userData){
 
-    fetch("http://127.0.0.1:8000/auth/jwt/create",{
+    fetch("https://gengenius-back.onrender.com/auth/jwt/create",{
         method: 'POST',
         headers: {
            'Content-Type': 'application/json'
@@ -185,8 +185,8 @@ function secondRegistration(secondUserData){
       return null;
    }
 
-   // http://127.0.0.1:8000/manage_easywin/customers/me/ 
-   fetch('http://127.0.0.1:8000/manage_geniusera/students/me/', {
+   // https://gengenius-back.onrender.com/manage_easywin/customers/me/ 
+   fetch('https://gengenius-back.onrender.com/manage_geniusera/students/me/', {
    method: 'PUT',
    headers: {
       'Authorization': `JWT ${accessToken}`,

@@ -72,7 +72,7 @@ document.getElementById('search-input').addEventListener('input', function() {
 
 // display teacher data
 function fetchData(query) {
-    const url = `http://127.0.0.1:8000/manage_geniusera/teacher_searches/search/?q=${encodeURIComponent(query)}`;
+    const url = `https://gengenius-back.onrender.com/manage_geniusera/teacher_searches/search/?q=${encodeURIComponent(query)}`;
     
     fetch(url)
         .then(response => {
@@ -121,7 +121,7 @@ function displaySearchResults(data) {
 
 
 function fetchTeachers(){
-    const url = "http://127.0.0.1:8000/manage_geniusera/teachers/";
+    const url = "https://gengenius-back.onrender.com/manage_geniusera/teachers/";
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -186,7 +186,7 @@ function displayTeachers(teacherData){
 
 
 function fetchTeacherUserDetails(id){
-    const url = `http://127.0.0.1:8000/core/teacher_users/${id}/`;
+    const url = `https://gengenius-back.onrender.com/core/teacher_users/${id}/`;
 
     fetch(url)
         .then(response => {
@@ -218,7 +218,7 @@ function makeEmailLink(email){
 }
 
 function fetchTeacherCustomerDetails(id){
-    const url = `http://127.0.0.1:8000/manage_geniusera/teacher_searches/${id}/`;
+    const url = `https://gengenius-back.onrender.com/manage_geniusera/teacher_searches/${id}/`;
 
     fetch(url)
         .then(response => {
@@ -276,7 +276,7 @@ function studentUserDetails(){
     }
  
     // http://127.0.0.1:8000/manage_geniusera/teachers/me/ 
-    fetch('http://127.0.0.1:8000/auth/users/me/', {
+    fetch('https://gengenius-back.onrender.com/auth/users/me/', {
     headers: {
        'Authorization': `JWT ${accessToken}`,
        'Content-Type': 'application/json',
@@ -311,7 +311,7 @@ function studentUserDetails(){
      }
  
      // http://127.0.0.1:8000/manage_geniusera/teachers/me/ 
-     fetch('http://127.0.0.1:8000/manage_geniusera/students/me/', {
+     fetch('https://gengenius-back.onrender.com/manage_geniusera/students/me/', {
      headers: {
         'Authorization': `JWT ${accessToken}`,
         'Content-Type': 'application/json',
