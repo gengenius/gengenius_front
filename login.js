@@ -12,6 +12,11 @@ let password = document.getElementById("password");
 let forgotPasswordContainer=document.getElementById("forgot-password-container");
 let email=document.getElementById("email");
 
+window.onload=function(){
+    submitBtn.disabled=false;
+    submitBtn.style.backgroundColor='#4CAF50'
+}
+
 function showSpinner(){
     submitBtn.disabled = true;
     submitBtn.style.backgroundColor='#ccc';
