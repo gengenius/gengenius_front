@@ -152,7 +152,7 @@ function displayTeachers(teacherData){
             return;
         }
 
-        const headers = Object.keys(teacherData[0]).filter(header => (header !== 'id' && header !== 'user_id' && header !== 'qualification' && header !== 'status' && header !== 'phone' && header !== 'link' && header !== 'amount'));
+        const headers = Object.keys(teacherData[0]).filter(header => (header !== 'id' && header !== 'user_id' && header!=='gender' && header !== 'qualification' && header !== 'status' && header !== 'phone' && header !== 'link' && header !== 'amount'));
         headers.forEach(headers => {
             const th = document.createElement('th');
             th.textContent=headers;
