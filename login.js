@@ -12,11 +12,6 @@ let password = document.getElementById("password");
 let forgotPasswordContainer=document.getElementById("forgot-password-container");
 let email=document.getElementById("email");
 
-window.onload=function(){
-    submitBtn.disabled=false;
-    submitBtn.style.backgroundColor='#4CAF50'
-}
-
 function showSpinner(){
     submitBtn.disabled = true;
     submitBtn.style.backgroundColor='#ccc';
@@ -101,9 +96,13 @@ function login(){
         .then(profileData => {
             if(profileData.status==="Teacher"){
                 document.querySelector('.spinner').style.display = 'none';
+                submitBtn.disabled=false;
+                submitBtn.style.backgroundColor='#4CAF50'
                 window.location.href="teacher_dashboard.html";
             }
             else if(profileData.status==="Student"){
+                submitBtn.disabled=false;
+                submitBtn.style.backgroundColor='#4CAF50'
                 document.querySelector('.spinner').style.display = 'none';
                 window.location.href="student_dashboard.html";
             }
