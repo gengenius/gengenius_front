@@ -50,18 +50,18 @@ aboutOption.onclick=function(){
     }, 3000)
 }
 
-// card1.onclick=function(){
-//     window.location.href="login.html"
-// }
-// card2.onclick=function(){
-//     window.location.href="login.html"
-// }
-// card3.onclick=function(){
-//     window.location.href="login.html"
-// }
-// card4.onclick=function(){
-//     window.location.href="login.html"
-// }
+card1.onclick=function(){
+    window.location.href="login.html"
+}
+card2.onclick=function(){
+    window.location.href="login.html"
+}
+card3.onclick=function(){
+    window.location.href="login.html"
+}
+card4.onclick=function(){
+    window.location.href="login.html"
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const tabBtn=document.getElementById("tab-btn");
