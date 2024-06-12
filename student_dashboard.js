@@ -70,10 +70,10 @@ document.getElementById('search-input').addEventListener('input', function() {
     // if(query===''){
     //     dataTable.style.display='inline-block';
     // }
+    if(query===''){
+       resultsContainer.innerHTML='';
+    }
 });
-document.getElementById('search-input').addEventListener('focusout', function() {
-    resultsContainer.innerHTML=''
-})
 
 // display teacher data
 function fetchData(query) {
