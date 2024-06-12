@@ -25,7 +25,7 @@ const logoutNObtn = document.getElementById("logout-no-btn");
 const logoutYESbtn = document.getElementById("logout-yes-btn");
 const logoutContainer = document.getElementById("logout-container");
 const goBackContainer = document.getElementById("go-back-container");
-const searchGoBack = document.getElementById("search-go-back");
+// const searchGoBack = document.getElementById("search-go-back");
 
 const getTeacher=document.getElementById("personal-teacher")
 const hideForSearch =document.getElementById("hide-for-search")
@@ -38,6 +38,8 @@ const readContainer=document.getElementById("read-container");
 
 let contact=document.querySelector(".contact");
 let contactOption=document.getElementById("contact-option");
+
+let disturbingLine = document.getElementById("disturbing-line");
 
 getTeacher.addEventListener('click', function(){
     hideForSearch.style.display='none'
@@ -55,20 +57,23 @@ if(!accessToken){
  }
 
 document.getElementById('search-input').addEventListener('input', function() {
-    dataTable.style.display='none';
-    hideForSearch.style.display='none'
+    // dataTable.style.display='none';
+    // hideForSearch.style.display='none'
     resultsContainer.style.display='block'
-    lastLastContainer.style.display='none'
-    optionsTab.style.display='none'
-    searchGoBack.style.display='block'
+    // lastLastContainer.style.display='none'
+    // optionsTab.style.display='none'
+    // searchGoBack.style.display='block'
 
     const query = document.getElementById('search-input').value;
     fetchData(query);
 
-    if(query===''){
-        dataTable.style.display='inline-block';
-    }
+    // if(query===''){
+    //     dataTable.style.display='inline-block';
+    // }
 });
+document.getElementById('search-input').addEventListener('focusout', function() {
+    resultsContainer.innerHTML=''
+})
 
 // display teacher data
 function fetchData(query) {
@@ -174,6 +179,7 @@ function displayTeachers(teacherData){
                     lastLastContainer.style.display='none'
                     optionsTab.style.display='none'
                     searchBar.style.display='none'
+                    disturbingLine.style.display='none'
                 fetchTeacherUserDetails(item.id)
                 fetchTeacherCustomerDetails(item.id)
             });
@@ -346,6 +352,7 @@ function studentUserDetails(){
     lastLastContainer.style.display='none'
     optionsTab.style.display='none'
     searchBar.style.display='none'
+    disturbingLine.style.display='none'
     goBackContainer.style.display='block'
     studentUserDetails();
     studentCustomerDetails();
@@ -359,6 +366,7 @@ function studentUserDetails(){
     searchBar.style.display='none'
     dataTable.style.display='none'
     resultsContainer.style.display='none'
+    disturbingLine.style.display='none'
     logoutContainer.style.display='block'
  }
  logoutYESbtn.onclick=function(){
@@ -371,9 +379,9 @@ function studentUserDetails(){
 goBackContainer.onclick=function(){
     window.location.href="student_dashboard.html";
 }
-searchGoBack.onclick=function(){
-    window.location.href="student_dashboard.html";
-}
+// searchGoBack.onclick=function(){
+//     window.location.href="student_dashboard.html";
+// }
 readContainer.onclick=function(){
     const read = document.getElementById('read')
     if(read.textContent==='please read all'){
