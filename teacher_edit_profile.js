@@ -347,11 +347,12 @@ function updateUserProfile(){
          }
          if(error.email){
             //  pending.innerHTML='';
-             emailError.style.display='block';
-             window.location.href='#email-error'
-             submitBtn.disabled=false;
-             submitBtn.style.backgroundColor='#4CAF50'
-            //  document.querySelector('.spinner').style.display = 'none';
+            usernameError.textContent='username already exists'
+            emailError.style.display='block';
+            window.location.href='#email-error'
+            submitBtn.disabled=false;
+            submitBtn.style.backgroundColor='#4CAF50'
+         //  document.querySelector('.spinner').style.display = 'none';
          }
      })   
    }

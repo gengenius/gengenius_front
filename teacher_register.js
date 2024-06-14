@@ -222,11 +222,12 @@ function firstRegistration(userData){
         return response.json().then(error =>{
             if(error.username){
                //  pending.innerHTML='';
-                usernameError.style.display='block';
-                window.location.href='#username-error'
-                submitBtn.disabled=false;
-                submitBtn.style.backgroundColor='#4CAF50'
-                document.querySelector('.spinner').style.display = 'none';
+               usernameError.textContent='username already exists'
+               usernameError.style.display='block';
+               window.location.href='#username-error'
+               submitBtn.disabled=false;
+               submitBtn.style.backgroundColor='#4CAF50'
+               document.querySelector('.spinner').style.display = 'none';
             }
             if(error.email){
                //  pending.innerHTML='';
