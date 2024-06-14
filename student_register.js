@@ -1,5 +1,5 @@
 let form=document.getElementById("form");
-submitBtn=document.getElementById("submit-btn");
+let submitBtn=document.getElementById("submit-btn");
 let username=document.getElementById("username");
 let usernameError=document.getElementById("username-error");
 let first_name=document.getElementById("first-name");

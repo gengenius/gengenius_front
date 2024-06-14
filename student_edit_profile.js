@@ -1,4 +1,5 @@
 let form=document.getElementById("form");
+let submitBtn=document.getElementById("submit-btn");
 let editProfileContainer=document.getElementById("edit-profile-container");
 let username=document.getElementById("username");
 let first_name=document.getElementById("first-name");
