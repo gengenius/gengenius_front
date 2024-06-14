@@ -21,7 +21,11 @@
                 <input style="display: none;" class="textField" type="text" id="first-name" name="first-name" placeholder="first name" readonly>
                 <input style="display: none;" class="textField" type="text" id="last-name" name="last-name" placeholder="last name" readonly>
                 <input class="textField" type="text" id="username" name="username" placeholder="username" required> <br>
+                <span style="display: none; color: red; font-size: smaller;" id="username-error">username already exists</span>
+                <br>
                 <input class="textField" type="email" id="email" name="email" placeholder="email" required> <br>
+                <span style="display: none; color: red; font-size: smaller;" id="email-error">email already exists</span>
+                <br>
                 <select class="textField" name="gender" id="gender" required></select> <br>
                 <br>
                 <label id="region-lbl" for="region">Region:</label>

@@ -116,6 +116,13 @@ function displaySearchResults(data) {
         li.style.margin='20px'
         li.textContent = `${item.region} / ${item.district} / ${item.town} / ${item.school_level} / ${item.subject}`;
         li.addEventListener('click', function() {
+            dataTable.style.display='none';
+            hideForSearch.style.display='none'
+            resultsContainer.style.display='none'
+            lastLastContainer.style.display='none'
+            optionsTab.style.display='none'
+            searchBar.style.display='none'
+            disturbingLine.style.display='none'
             fetchTeacherUserDetails(item.id)
             fetchTeacherCustomerDetails(item.id)
         });

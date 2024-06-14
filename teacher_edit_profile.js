@@ -7,11 +7,11 @@ let email=document.getElementById("email");
 let gender=document.getElementById("gender");
 let password=document.getElementById("password");
 // let confirm_password=document.getElementById("confirm-password");
-// let usernameError=document.getElementById("usernameError");
+let usernameError=document.getElementById("username-error");
 // let passwordError1=document.getElementById("passwordError1");
 // let passwordError2=document.getElementById("passwordError2");
 // let passwordTooShort=document.getElementById("passwordTooShort");
-// let emailError=document.getElementById("emailError");
+let emailError=document.getElementById("email-error");
 // let pending=document.getElementById("pendingLbl");
 // let pendingError=document.getElementById("pendingError");
 let region = document.getElementById("region");
@@ -39,6 +39,27 @@ const updateProfileAccessToken=localStorage.getItem('loginAccessToken');
 if(!updateProfileAccessToken){
    window.location.href="login.html";
  }
+
+ function isValidUsername(username) {
+   // Regular expression to match the valid characters
+   const regex = /^[a-zA-Z0-9@.\-+_]+$/;
+   
+   // Test the username against the regular expression
+   return regex.test(username);
+}
+
+ username.addEventListener('input', function(){
+   if (isValidUsername(username.value) || username.value==='') {
+      usernameError.style.display='none';
+   }
+   else {
+      usernameError.textContent='Enter valid username'
+      usernameError.style.display='block';
+   }
+ })
+ email.addEventListener('input', function(){
+   emailError.style.display='none'
+ })
 
 // display teacher data
 function TeacherUserDetails(){
@@ -310,11 +331,29 @@ function updateUserProfile(){
     username: username.value,
     first_name: first_name.value,
     last_name: last_name.value,
+    email: email.value,
    })
 })
 .then(response =>{
    if(!response.ok){
-      throw new Error('second registration failed');
+      return response.json().then(error =>{
+         if(error.username){
+            //  pending.innerHTML='';
+             usernameError.style.display='block';
+             window.location.href='#username-error'
+             submitBtn.disabled=false;
+             submitBtn.style.backgroundColor='#4CAF50'
+            //  document.querySelector('.spinner').style.display = 'none';
+         }
+         if(error.email){
+            //  pending.innerHTML='';
+             emailError.style.display='block';
+             window.location.href='#email-error'
+             submitBtn.disabled=false;
+             submitBtn.style.backgroundColor='#4CAF50'
+            //  document.querySelector('.spinner').style.display = 'none';
+         }
+     })   
    }
    else{
       // editProfileContainer.style.display='none';

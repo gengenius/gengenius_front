@@ -42,8 +42,22 @@ function genderLoad(){
 }
 genderLoad();
 
-username.addEventListener('input', function(){
-   usernameError.style.display='none'
+function isValidUsername(username) {
+   // Regular expression to match the valid characters
+   const regex = /^[a-zA-Z0-9@.\-+_]+$/;
+   
+   // Test the username against the regular expression
+   return regex.test(username);
+}
+
+ username.addEventListener('input', function(){
+   if (isValidUsername(username.value) || username.value==='') {
+      usernameError.style.display='none';
+   }
+   else {
+      usernameError.textContent='Enter valid username'
+      usernameError.style.display='block';
+   }
  })
  email.addEventListener('input', function(){
    emailError.style.display='none'
