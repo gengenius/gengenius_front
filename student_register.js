@@ -53,10 +53,14 @@ function isValidUsername(username) {
  username.addEventListener('input', function(){
    if (isValidUsername(username.value) || username.value==='') {
       usernameError.style.display='none';
+      submitBtn.disabled=false;
+      submitBtn.style.backgroundColor='#4CAF50'
    }
    else {
       usernameError.textContent='Enter valid username'
       usernameError.style.display='block';
+      submitBtn.disabled = true;
+      submitBtn.style.backgroundColor='#ccc';
    }
  })
  email.addEventListener('input', function(){

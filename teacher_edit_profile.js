@@ -51,10 +51,14 @@ if(!updateProfileAccessToken){
  username.addEventListener('input', function(){
    if (isValidUsername(username.value) || username.value==='') {
       usernameError.style.display='none';
+      submitBtn.disabled=false;
+      submitBtn.style.backgroundColor='#4CAF50'
    }
    else {
       usernameError.textContent='Enter valid username'
       usernameError.style.display='block';
+      submitBtn.disabled = true;
+      submitBtn.style.backgroundColor='#ccc';
    }
  })
  email.addEventListener('input', function(){
@@ -339,10 +343,11 @@ function updateUserProfile(){
       return response.json().then(error =>{
          if(error.username){
             //  pending.innerHTML='';
-             usernameError.style.display='block';
-             window.location.href='#username-error'
-             submitBtn.disabled=false;
-             submitBtn.style.backgroundColor='#4CAF50'
+            usernameError.textContent='username already exists'
+            usernameError.style.display='block';
+            window.location.href='#username-error'
+            submitBtn.disabled=false;
+            submitBtn.style.backgroundColor='#4CAF50'
             //  document.querySelector('.spinner').style.display = 'none';
          }
          if(error.email){
