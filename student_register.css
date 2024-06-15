@@ -97,10 +97,10 @@ label {
 }
 
 /* Error Labels */
-#pendingLbl, 
 #pendingError {
-    color: red;
+    color: rgb(190, 9, 9);
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Responsive Styles */

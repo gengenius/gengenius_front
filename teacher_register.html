@@ -14,8 +14,7 @@
             
         <form id="form" method="post">
             <br>
-            <label id="pendingLbl"></label>
-            <label id="pendingError"></label>
+            <label style="display: none;" id="pendingError">No internet connection. Please check your network.</label>
             <h3 id="signUpText">SIGN UP</h3>
             
             <input class="textField" type="text" id="username" name="username" required placeholder="username"> <br>
@@ -59,7 +58,7 @@
             <br>
             <input class="textField" name="link" id="link" type="text" placeholder="link(optional)"> <br>
             <br>
-            <label for="amount">Suggest amount to be charged per subject</label> <br>
+            <label style="text-align: center;" for="amount">Suggest amount to be charged per subject</label>
             <input class="textField" name="amount" id="amount" type="number" required value="0.00" min="1"> <br> <br>
             <button id="submit-btn" type="submit">DONE</button> <br>
             <div class="spinner">

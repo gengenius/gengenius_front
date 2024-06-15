@@ -13,8 +13,7 @@
             
             <form id="form" method="post">
                 <br>
-                <label id="pendingLbl"></label>
-                <label id="pendingError"></label>
+                <label style="display: none;" id="pendingError">No internet connection. Please check your network.</label>
                 <h3 id="signUpText">EDIT PROFILE</h3>
                 <label style="text-align: center; color: rgb(2, 149, 83);">Enter fields you want to edit</label><br>
                 
@@ -30,7 +29,9 @@
                 <br>
                 <label id="region-lbl" for="region">Region:</label>
                 <select class="textField" name="region" id="region"></select> <br>
+                <br>
                 <input class="textField" type="text" id="district" name="district" placeholder="what's your district ?" required> <br>
+                <br>
                 <input class="textField" type="text" id="town" name="town" placeholder="what's your town ?" required> <br>
                 <br>
                 <label for="qualification">Qualification:</label>
@@ -49,9 +50,10 @@
                 <br>
                 <label for="contact">Contact:</label>
                 <input class="textField" name="phone" id="phone" type="tel" placeholder="phone number" minlength="10" maxlength="10" required> <br>
+                <br>
                 <input class="textField" name="link" id="link" type="text" placeholder="link(optional)"> <br>
                 <br>
-                <label for="amount">Suggest amount to be charged per subject</label>
+                <label style="text-align: center;" for="amount">Suggest amount to be charged per subject</label>
                 <input class="textField" name="amount" id="amount" type="number" value="0.00" min="1" required> <br>
                 <button id="submit-btn" type="submit">EDIT</button> <br>
                 

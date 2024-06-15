@@ -14,8 +14,7 @@ let confirm_password=document.getElementById("confirm-password");
 // let passwordError2=document.getElementById("passwordError2");
 // let passwordTooShort=document.getElementById("passwordTooShort");
 // let emailError=document.getElementById("emailError");
-// let pending=document.getElementById("pendingLbl");
-// let pendingError=document.getElementById("pendingError");
+let pendingError=document.getElementById("pendingError");
 let phone = document.getElementById("phone");
 
 function showSpinner(){
@@ -74,22 +73,38 @@ function isValidUsername(username) {
  })
 
 
+ document.addEventListener('DOMContentLoaded', () => {
+   // Function to update the notification based on connection status
+   function updateOnlineStatus() {
+       if (!navigator.onLine) {
+           pendingError.style.display = 'block';
+           window.location.href='#pendingError';
+       } else {
+           pendingError.style.display = 'none';
+       }
+   }
+
+   // Event listeners for online and offline events
+   window.addEventListener('online', updateOnlineStatus);
+   window.addEventListener('offline', updateOnlineStatus);
+
+   // Check connection status on page load
+   updateOnlineStatus();
+
+
+
 form.addEventListener('submit', function(event){
    event.preventDefault();
 
    showSpinner();
 
-   // if(!navigator.onLine){
-   //  pending.innerHTML='';
-   //  pendingError.innerHTML='Oops!! Poor Connection';
-   //  return null;
-   //  }
-   //  else{
-   //  pendingError.innerHTML='';
-   //  pending.innerHTML='● ● ●';
+   if (!navigator.onLine) {
+      alert('No internet connection. Please check your network and try again.');
+      return;
+    }
+    else{
 
    if(password.value!==confirm_password.value){
-      //  pending.innerHTML='';
        passwordError.style.display='block'
        passwordError.textContent='Passwords do not match!';
        password.value='';
@@ -101,7 +116,6 @@ form.addEventListener('submit', function(event){
        return;
        }
    else if(password.value.length<8){
-      //   pending.innerHTML='';
          passwordError.style.display='block';
          passwordError.textContent='Must contain at least 8 characters';
          window.location.href='#password-error'
@@ -126,7 +140,6 @@ function firstRegistration(userData){
             // throw new Error("Network not ok");
         return response.json().then(error =>{
             if(error.username){
-               //  pending.innerHTML='';
                usernameError.textContent='username already exists'
                usernameError.style.display='block';
                window.location.href='#username-error'
@@ -135,7 +148,6 @@ function firstRegistration(userData){
                document.querySelector('.spinner').style.display = 'none';
             }
             if(error.email){
-               //  pending.innerHTML='';
                 emailError.style.display='block';
                 window.location.href='#email-error'
                 submitBtn.disabled=false;
@@ -260,9 +272,10 @@ localStorage.removeItem('accessToken');
 }
 
 
-// }
+}
 
 
 
 });
 
+});

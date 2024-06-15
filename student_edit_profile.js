@@ -90,9 +90,8 @@ function TeacherUserDetails(){
  
  
  function TeacherCustomerDetails(){
-   //   console.log(updateProfileAccessToken);
      if(!updateProfileAccessToken){
-        console.log('Access token not found in localStorage');
+      //   console.log('Access token not found in localStorage');
         return null;
      }
  
@@ -139,18 +138,33 @@ function TeacherUserDetails(){
 }
 genderLoad();
       
+document.addEventListener('DOMContentLoaded', () => {
+   // Function to update the notification based on connection status
+   function updateOnlineStatus() {
+       if (!navigator.onLine) {
+           pendingError.style.display = 'block';
+           window.location.href='#pendingError';
+       } else {
+           pendingError.style.display = 'none';
+       }
+   }
+
+   // Event listeners for online and offline events
+   window.addEventListener('online', updateOnlineStatus);
+   window.addEventListener('offline', updateOnlineStatus);
+
+   // Check connection status on page load
+   updateOnlineStatus();
+
 form.addEventListener('submit', function(event){
    event.preventDefault();
    
    
-   // if(!navigator.onLine){
-   //  pending.innerHTML='';
-   //  pendingError.innerHTML='Oops!! Poor Connection';
-   //  return null;
-   //  }
-   //  else{
-   //  pendingError.innerHTML='';
-   //  pending.innerHTML='● ● ●';
+   if (!navigator.onLine) {
+      alert('No internet connection. Please check your network and try again.');
+      return;
+    }
+    else{
 
    //  if(password.value!==confirm_password.value){
    //  pending.innerHTML='';
@@ -257,7 +271,8 @@ localStorage.removeItem('loginAccessToken');
 }
 updateCustomerProfile();
 
-// }
+}
 
 });
 
+});

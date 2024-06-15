@@ -13,7 +13,6 @@ let usernameError=document.getElementById("username-error");
 // let passwordError2=document.getElementById("passwordError2");
 // let passwordTooShort=document.getElementById("passwordTooShort");
 let emailError=document.getElementById("email-error");
-// let pending=document.getElementById("pendingLbl");
 // let pendingError=document.getElementById("pendingError");
 let region = document.getElementById("region");
 let district = document.getElementById("district");
@@ -283,6 +282,23 @@ function qualificationLoad(){
 
  regionLoad();
 
+ document.addEventListener('DOMContentLoaded', () => {
+   // Function to update the notification based on connection status
+   function updateOnlineStatus() {
+       if (!navigator.onLine) {
+           pendingError.style.display = 'block';
+           window.location.href='#pendingError';
+       } else {
+           pendingError.style.display = 'none';
+       }
+   }
+
+   // Event listeners for online and offline events
+   window.addEventListener('online', updateOnlineStatus);
+   window.addEventListener('offline', updateOnlineStatus);
+
+   // Check connection status on page load
+   updateOnlineStatus();
       
 form.addEventListener('submit', function(event){
    event.preventDefault();
@@ -298,14 +314,11 @@ form.addEventListener('submit', function(event){
    }
 
    
-   // if(!navigator.onLine){
-   //  pending.innerHTML='';
-   //  pendingError.innerHTML='Oops!! Poor Connection';
-   //  return null;
-   //  }
-   //  else{
-   //  pendingError.innerHTML='';
-   //  pending.innerHTML='● ● ●';
+   if (!navigator.onLine) {
+      alert('No internet connection. Please check your network and try again.');
+      return;
+    }
+    else{
 
    //  if(password.value!==confirm_password.value){
    //  pending.innerHTML='';
@@ -343,7 +356,6 @@ function updateUserProfile(){
    if(!response.ok){
       return response.json().then(error =>{
          if(error.username){
-            //  pending.innerHTML='';
             usernameError.textContent='username already exists'
             usernameError.style.display='block';
             window.location.href='#username-error'
@@ -352,7 +364,6 @@ function updateUserProfile(){
             //  document.querySelector('.spinner').style.display = 'none';
          }
          if(error.email){
-            //  pending.innerHTML='';
             usernameError.textContent='username already exists'
             emailError.style.display='block';
             window.location.href='#email-error'
@@ -420,7 +431,8 @@ localStorage.removeItem('loginAccessToken');
 }
 updateCustomerProfile();
 
-// }
+}
 
 });
 
+});

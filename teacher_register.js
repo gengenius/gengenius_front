@@ -14,8 +14,7 @@ let confirm_password=document.getElementById("confirm-password");
 // let passwordError2=document.getElementById("passwordError2");
 // let passwordTooShort=document.getElementById("passwordTooShort");
 // let emailError=document.getElementById("emailError");
-// let pending=document.getElementById("pendingLbl");
-// let pendingError=document.getElementById("pendingError");
+let pendingError=document.getElementById("pendingError");
 let region = document.getElementById("region");
 let district = document.getElementById("district");
 let town = document.getElementById("town");
@@ -170,6 +169,24 @@ function qualificationLoad(){
    passwordError.style.display='none'
  })
 
+ document.addEventListener('DOMContentLoaded', () => {
+   // Function to update the notification based on connection status
+   function updateOnlineStatus() {
+       if (!navigator.onLine) {
+           pendingError.style.display = 'block';
+           window.location.href='#pendingError';
+       } else {
+           pendingError.style.display = 'none';
+       }
+   }
+
+   // Event listeners for online and offline events
+   window.addEventListener('online', updateOnlineStatus);
+   window.addEventListener('offline', updateOnlineStatus);
+
+   // Check connection status on page load
+   updateOnlineStatus();
+
 form.addEventListener('submit', function(event){
    event.preventDefault();
 
@@ -179,17 +196,13 @@ form.addEventListener('submit', function(event){
 
    let school_level_data=school_level.join(', ')
 
-   // if(!navigator.onLine){
-   //  pending.innerHTML='';
-   //  pendingError.innerHTML='Oops!! Poor Connection';
-   //  return null;
-   //  }
-   //  else{
-   //  pendingError.innerHTML='';
-   //  pending.innerHTML='● ● ●';
+   if (!navigator.onLine) {
+      alert('No internet connection. Please check your network and try again.');
+      return;
+    }
+    else{
 
     if(password.value!==confirm_password.value){
-   //  pending.innerHTML='';
     passwordError.style.display='block'
     passwordError.textContent='Passwords do not match!';
     password.value='';
@@ -370,7 +383,7 @@ localStorage.removeItem('accessToken');
 }
 
 
-// }
+}
 
 
 }
@@ -384,3 +397,4 @@ else{
 }
 });
 
+});
