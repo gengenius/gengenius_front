@@ -256,6 +256,8 @@ function secondRegistration(secondUserData){
    }
    else{
       document.querySelector('.spinner').style.display = 'none';
+      submitBtn.disabled=false;
+      submitBtn.style.backgroundColor='#4CAF50'
       window.location.href="login.html";
    }
    return response.json();
