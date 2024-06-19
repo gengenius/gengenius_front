@@ -346,7 +346,7 @@ function updateUserProfile(){
       'Content-Type': 'application/json',
    },
    body: JSON.stringify({
-    username: username.value,
+    username: username.value.toLowerCase(),
     first_name: first_name.value,
     last_name: last_name.value,
     email: email.value,

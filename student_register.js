@@ -181,7 +181,7 @@ function firstRegistration(userData){
 const formData=new FormData(this);
 
     const userData={
-        username: formData.get('username'),
+        username: formData.get('username').toLowerCase(),
         first_name: formData.get('first-name').charAt(0).toUpperCase() + formData.get('first-name').slice(1).toLowerCase(),
         last_name: formData.get('last-name').charAt(0).toUpperCase() + formData.get('last-name').slice(1).toLowerCase(),
         email: formData.get('email'),

@@ -63,7 +63,7 @@ function login(){
      headers: {
         'Content-Type': 'application/json'
      },
-     body: JSON.stringify({username: username.value, password: password.value})
+     body: JSON.stringify({username: username.value.toLowerCase(), password: password.value})
  
     })
     .then(response => {
